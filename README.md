@@ -10,7 +10,7 @@
 > Step 2. Add the dependency
 ``` Module Gradle
 dependencies {
-	        implementation 'com.github.PakMasterDeveloper:AppManager:1.0'
+	        implementation 'com.github.PakMasterDeveloper:AppManager:1.0.0'
 	}
 ```
 
