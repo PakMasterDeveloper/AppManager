@@ -41,7 +41,49 @@ fun View.visible() = apply {
     visibility = View.VISIBLE
 }
 
-@ChecksSdkIntAtLeast(api = Build.VERSION_CODES.Q, lambda = 1)
+inline fun <reified T> T.sdk22AndUp(onSdk22: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+        onSdk22()
+    } else null
+}
+
+inline fun <reified T> T.sdk23AndUp(onSdk23: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        onSdk23()
+    } else null
+}
+
+inline fun <reified T> T.sdk24AndUp(onSdk24: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        onSdk24()
+    } else null
+}
+
+inline fun <reified T> T.sdk25AndUp(onSdk25: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+        onSdk25()
+    } else null
+}
+
+inline fun <reified T> T.sdk26AndUp(onSdk26: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        onSdk26()
+    } else null
+}
+
+inline fun <reified T> T.sdk27AndUp(onSdk27: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+        onSdk27()
+    } else null
+}
+
+inline fun <reified T> T.sdk28AndUp(onSdk28: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        onSdk28()
+    } else null
+}
+
+
 inline fun <reified T> T.sdk29AndUp(onSdk29: () -> T): T? {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
         onSdk29()
@@ -49,12 +91,30 @@ inline fun <reified T> T.sdk29AndUp(onSdk29: () -> T): T? {
 }
 
 
-@ChecksSdkIntAtLeast(api = Build.VERSION_CODES.R, lambda = 1)
 inline fun <reified T> T.sdk30AndUp(onSdk30: () -> T): T? {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         onSdk30()
     } else null
 }
+
+inline fun <reified T> T.sdk31AndUp(onSdk31: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        onSdk31()
+    } else null
+}
+
+inline fun <reified T> T.sdk32AndUp(onSdk32: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S_V2) {
+        onSdk32()
+    } else null
+}
+
+inline fun <reified T> T.sdk33AndUp(onSdk33: () -> T): T? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        onSdk33()
+    } else null
+}
+
 
 inline fun <reified T> T.navigateActivity(
     activity: Activity,
@@ -134,9 +194,10 @@ val Fragment.preferenceUtils
 val Context.preferenceUtils
     get() = PreferenceUtils.getInstance(this)
 
-fun Application.orientationVertical()= apply {
+fun Application.orientationVertical() = apply {
     ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 }
-fun Application.lockDarkTheme()=apply {
+
+fun Application.lockDarkTheme() = apply {
     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 }
