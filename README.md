@@ -64,8 +64,11 @@ permissionRegister.permissionLauncher(arrayOf(Manifest.permission.READ_EXTERNAL_
 ```
 > Use for calling other activity with required parameter like 
 ```
-
          navigateActivity(this,MainActivity::class.java,true,Bundle())
+                            or
+         navigateActivity(this,MainActivity::class.java,true)
+                            or
+         navigateActivity(this,MainActivity::class.java)
 ```
 > Context, Activity Name , if remove Activity from stack only true value , passing Bundle if tou wants pass some value one activity to other activity 
 

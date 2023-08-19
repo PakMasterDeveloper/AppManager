@@ -59,7 +59,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.PakMasterDeveloper'
                 artifactId = 'managers'
-                version = '1.0'
+                version = '1.0.0'
             }
         }
     }
